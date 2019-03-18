@@ -47,9 +47,16 @@ mydb = mysql.connector.connect(
     )
 print(mydb)
 
-sqltuple = tuple(zip(busnumber, timestamp))
+print('---------- Processing----------')
+
+# sqltuple = tuple(zip(busnumber, timestamp))
+# cursor = mydb.cursor()
+# query = """UPDATE dublinbus.matrix_145 SET busnumber =%s WHERE Timestamp = %s;"""
+# cursor.executemany(query,sqltuple)
+
+sqltuple = tuple(zip(time145, timestamp))
 cursor = mydb.cursor()
-query = """UPDATE dublinbus.matrix_145 SET busnumber =%s WHERE timestamp = %s;"""
+query = """UPDATE dublinbus.matrix_145 SET time145 =%s WHERE Timestamp = %s;"""
 cursor.executemany(query,sqltuple)
 
 #cursor.execute(query)
